@@ -6,18 +6,19 @@ import java.util.Date;
 @Entity
 @Table (name = "MYTEST")
 public class Student {
-    @Id @GeneratedValue
+    @Id
     private int number;
     private String Name;
     private String fName;
-    @Temporal(TemporalType.TIME )
     private Date BDate;
     private String Address;
-    @Lob
     private String description;
+    @Embedded
+    private Address address;
 
-
-
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public String getAddress() {
         return Address;
